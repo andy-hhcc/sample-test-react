@@ -18,8 +18,8 @@ export default class NormalOpeningHours extends Component {
       <div className="col-xs-6">
         <div className="col-xs-6">
           {
-            times.map((time) => (
-              <div>
+            times.map((time, idx) => (
+              <div key={`normal-time-${idx}`}>
                 <span>{time.start} - {time.end}</span><span className="square"></span>
               </div>
             ))

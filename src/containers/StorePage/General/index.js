@@ -1,6 +1,6 @@
 import React from 'react';
 import FormEdit, {ItemEdit} from 'components/FormEdit';
-import ImageStore from 'components/ImageStore';
+import ImageStore from './ImageStore';
 import OpenningHours from './OpeningHours';
 const dumpData = [
   {

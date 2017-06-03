@@ -19,8 +19,8 @@ export default class SeasonalOpeningHours extends Component {
         <div className="col-xs-6">
           <div className="col-xs-6">
             {
-              times.map((time) => (
-                <div>
+              times.map((time, idx) => (
+                <div key={`seasonal-time-${idx}`}>
                   <span>{time.start} - {time.end}</span><span className="square"></span>
                 </div>
               ))
