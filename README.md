@@ -15,8 +15,5 @@
 2. Run `npm start` or `yarn start` to start dev mode. 
 App will run on port 3000
 
-## Contribute
- - [DuyPT](https://www.facebook.com/duy.han.944)
- - [TuyenHX](https://www.facebook.com/tuyenhx)
 
  ## License
