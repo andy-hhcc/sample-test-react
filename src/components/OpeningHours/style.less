@@ -1,0 +1,46 @@
+.normal {
+  min-height: 300px;
+  border-right: solid 1px #000000;
+  &.seasonal {
+    border-right: none;
+    position: relative;
+
+    .head-title {
+      position: absolute;
+      top: -30px;
+      text-align: center;
+      width: 100%;
+      font-size: 16px;
+    }
+    .footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+
+      .select-date {
+        i {
+          font-size: 10px;
+        }
+      }
+
+      button {
+        margin-left: 15px;
+      }
+    }
+  }
+
+  h1 {
+    color: red;
+  }
+  .col-xs-6 {
+    padding: 0;
+  }
+
+  .square {
+    margin-left: 3px;
+    display: inline-block;
+    height: 13px;
+    width: 13px;
+    background-color: black;
+  }
+}
