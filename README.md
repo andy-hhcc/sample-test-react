@@ -1,5 +1,5 @@
 ## Introduce
- Example project using React JS and Redux
+ Example project using React JS and Redux in Nexle Corporation
 
 ## Technology
  * React
