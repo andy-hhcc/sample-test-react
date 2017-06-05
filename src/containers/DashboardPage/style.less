@@ -101,8 +101,8 @@
   padding-left: 3px;
   .circle-radio {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     border: 1px solid darkgray;
     border-radius: 50%;
     margin-right: 5px;
@@ -118,9 +118,40 @@
       margin: 0 auto;
       margin-top: 3px;
       display: none;
-      width: 12px;
-      height: 12px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
+      background-color: deepskyblue;
+    }
+  }
+}
+
+.checkbox-inline {
+  display: flex !important;
+  align-items: center;
+  padding-left: 3px;
+  .square-checkbox {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 1px solid darkgray;
+    border-radius: 2px;
+    margin-right: 5px;
+
+    &.active {
+      border: 1px solid deepskyblue;
+      .square-inside {
+        display: block;
+      }
+    }
+
+    .square-inside {
+      margin: 0 auto;
+      margin-top: 2.5px;
+      display: none;
+      width: 9px;
+      height: 9px;
+      border-radius: 2px;
       background-color: deepskyblue;
     }
   }

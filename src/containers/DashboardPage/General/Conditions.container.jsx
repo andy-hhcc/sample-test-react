@@ -30,11 +30,14 @@ const dateRange = {
   end: '01/20/2017'
 }
 
-const categories = [
+const categoriesCol1 = [
   {value: 'Sales'},
   {value: 'ATV - All'},
   {value: 'Transactions'},
-  {value: '<Category> Sales'},
+  {value: '<Category> Sales'}
+]
+
+const categoriesCol2 = [
   {value: 'Category Qty'},
   {value: 'Order type'}
 ]
@@ -67,10 +70,10 @@ export default class Conditions extends Component {
         <div className="col-md-3 filter-item">
           <DateRange dateRangeData={dateRange}/>
         </div>
-        <div className="col-md-2 filter-item">
-          <Category categories={categories}/>
-        </div>
         <div className="col-md-3 filter-item">
+          <Category categoriesCol1={categoriesCol1} categoriesCol2={categoriesCol2}/>
+        </div>
+        <div className="col-md-2 filter-item">
           <Stores stores={stores}/>
         </div>
       </div>
