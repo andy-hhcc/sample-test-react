@@ -17,7 +17,7 @@
     display: none;
     &.show {
       display: block;
-      input{
+      input {
         margin-right: 5px;
       }
     }
@@ -93,6 +93,36 @@
     /* Internet Explorer */
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 
+  }
+}
+
+.radio-inline {
+  display: flex !important;
+  padding-left: 3px;
+  .circle-radio {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid darkgray;
+    border-radius: 50%;
+    margin-right: 5px;
+
+    &.active {
+      border: 1px solid deepskyblue;
+      .circle-inside {
+        display: block;
+      }
+    }
+
+    .circle-inside {
+      margin: 0 auto;
+      margin-top: 3px;
+      display: none;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: deepskyblue;
+    }
   }
 }
 

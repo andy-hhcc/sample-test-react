@@ -15,7 +15,7 @@ const type = [
     value: 'Perfomance',
   },
   {
-    value: 'Comparision',
+    value: 'Comparison',
   }
 ];
 const frequency = [

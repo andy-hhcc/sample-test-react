@@ -1,25 +1,43 @@
 import React, {Component} from 'react';
 import FormGroup from 'components/FormGroup';
 
-
 // TODO:
 // Make Item edit workable with select, radio button, or checkbox
-const ItemEdit = ({title, value}) =>
-  (
-    <FormGroup title={title}>
+class ItemEdit extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  radioChange(e) {
+    this.props.changeRadio(e.target.value);
+  }
+
+  render() {
+    const {title, value} = this.props;
+    return (<FormGroup title={title}>
       {
         <label className="show radio-inline" key={value} htmlFor={value}>
-          <input id={value} name="frequency" type="radio" value={value}/>
+          <div className={`circle-radio ${this.props.active ? 'active' : ''}`}>
+            <div className="circle-inside"></div>
+          </div>
+          <input id={value} onChange={::this.radioChange} className="hidden" name="frequency" type="radio"
+                 value={value}/>
           {value}
         </label>
       }
-    </FormGroup>
-  )
-
-
+    </FormGroup>);
+  }
+}
 export default class Frequency extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      active: ''
+    }
+  }
+
+  changeRadio(value) {
+    this.setState({active: value});
   }
 
   render() {
@@ -27,7 +45,8 @@ export default class Frequency extends Component {
     return (
       <div>
         {frequencyData && frequencyData.map((o, index) => (
-          <ItemEdit key={index} title="" value={o.value}/>
+          <ItemEdit key={index} title="" changeRadio={::this.changeRadio} value={o.value}
+                    active={o.value == this.state.active ? true : false}/>
         ))}
       </div>
     );
