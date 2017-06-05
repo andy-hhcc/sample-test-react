@@ -14,11 +14,11 @@ class ItemEdit extends Component {
   }
 
   render() {
-    const {title, value} = this.props;
+    const {title, value, active} = this.props;
     return (<FormGroup title={title}>
       {
         <label className="show radio-inline" key={value} htmlFor={value}>
-          <div className={`circle-radio ${this.props.active ? 'active' : ''}`}>
+          <div className={`circle-radio ${active ? 'active' : ''}`}>
             <div className="circle-inside"></div>
           </div>
           <input id={value} onChange={::this.radioChange} className="hidden" name="typechart" type="radio"
@@ -48,7 +48,8 @@ export default class ChartType extends Component {
     return (
       <div>
         {typeConditions && typeConditions.map((o, index) => (
-          <ItemEdit key={index} title="" changeRadio={::this.changeRadio} value={o.value} active={o.value == this.state.active ? true : false}/>
+          <ItemEdit key={index} title="" changeRadio={::this.changeRadio} value={o.value}
+                    active={o.value == this.state.active ? true : false}/>
         ))}
       </div>
     );
