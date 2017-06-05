@@ -12,10 +12,12 @@ export default class FormEdit extends React.Component {
 
   render() {
     const EditBtn = (
-      <i
+      <span
+        style={{ cursor: 'pointer' }}
         onClick={() => this.setState({isEditing: true,})}
-        className="fa fa-pencil">
-      </i>
+      >
+        Edit
+      </span>
     );
     const childrenWithProps = React.Children.map(this.props.children,
       (child) => React.cloneElement(child, {
@@ -56,14 +58,31 @@ export default class FormEdit extends React.Component {
   }
 }
 
+export const Column = ({ col = 6, editing, children }) => {
+  const childrenWithProps = React.Children.map(children,
+    (child) => React.cloneElement(child, {
+      editing,
+    })
+  );
+
+  return (
+    <div className={`col-md-${col}`}>
+     { childrenWithProps }
+    </div>
+  )
+};
+
+
 // TODO:
 // Make Item edit workable with select, radio button, or checkbox
-export const ItemEdit = ({editing, title, value}) =>
+export const ItemEdit = ({ editing, title, value }) =>
   (
-    <FormGroup title={title}>
-      {
-        editing ? <input type="text" className="form-control" value={value}/> : <span>{value}</span>
-      }
-    </FormGroup>
-  )
+    <div className="col-md-12">
+      <FormGroup title={title}>
+        {
+          editing ? <input type="text" className="form-control" value={value}/> : <span>{value}</span>
+        }
+      </FormGroup>
+    </div>
+  );
 

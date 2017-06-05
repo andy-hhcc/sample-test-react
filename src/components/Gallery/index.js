@@ -85,8 +85,9 @@ class Gallery extends Component {
         className={css(classes.gallery)}
         style={{
           display: 'flex',
-          justifyContent: 'center',
+          justifyContent: 'flex-start',
           alignItems: 'center',
+          alignContent: 'center',
           flexWrap: 'wrap',
         }}
       >

@@ -1,45 +1,18 @@
 import React from 'react';
-import FormEdit, {ItemEdit} from 'components/FormEdit';
+import ContactDetails from './ContactDetails';
 import ImageStore from './ImageStore';
 import OpenningHours from './OpeningHours';
-const dumpData = [
-  {
-    key: 'Store name',
-    value: 'Milton Keynes',
-  },
-  {
-    key: 'SID',
-    value: 'GB01101001',
-  },
-  {
-    key: 'Business Type',
-    value: 'Ice Cream Parlour Cafeteria',
-  },
-  {
-    key: 'Address',
-    value: '10 Silbury Boulevard, Milton Keynes, MK5 8DS, Buckingmashire United Kingdom',
-  },
-  {
-    key: 'About',
-    value: 'Artisian coffee shop',
-  },
-  {
-    key: 'Moto',
-    value: 'Come in for a coffee',
-  },
-  {
-    key: 'Telephone number',
-    value: '01908 444 777',
-  },
-  {
-    key: 'Email Address',
-    value: 'info@gmail.com',
-  },
-  {
-    key: 'Manager',
-    value: 'John Smith',
-  }
-]
+const details = {
+  storeName: 'Milton Keynes',
+  sid: 'GB01101001',
+  businessType: 'Ice Cream Parlour Cafeteria',
+  address: '10 Silbury Boulevard, Milton Keynes, MK5 8DS, Buckingmashire United Kingdom',
+  about: 'Artisian coffee shop',
+  moto: 'Come in for a coffee',
+  telephoneNumber: '01908 444 777',
+  emailAddress: 'info@gmail.com',
+  manager: 'John Smith',
+};
 
 const openingHours = {
   normal: {
@@ -60,23 +33,13 @@ const openingHours = {
 
 const General = (props) => (
   <div>
-    <FormEdit
-      onSave={() => console.log('Save success')}
-    >
-      {
-        dumpData.map((o) => (
-          <ItemEdit
-            key={o.key}
-            title={o.key}
-            value={o.value}
-          />
-        ))
-      }
-    </FormEdit>
+    <ContactDetails
+      details={details}
+    />
     <ImageStore />
     <OpenningHours data={openingHours}/>
   </div>
 );
 
 
-export default General; 
+export default General;
