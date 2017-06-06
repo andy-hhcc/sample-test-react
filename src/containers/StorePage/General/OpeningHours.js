@@ -14,10 +14,10 @@ export default class OpeningHours extends Component {
     return (<Box
       title="Opening Hours"
     >
-      <div className="col-md-6">
+      <div className="col-md-6 no-padding">
         <NormalOpeningHours data={normal}/>
       </div>
-      <div className="col-md-6">
+      <div className="col-md-6 no-padding">
         <SeasonalOpeningHours data={seasonal}/>
       </div>
     </Box>);

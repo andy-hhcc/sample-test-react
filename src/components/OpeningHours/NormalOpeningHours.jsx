@@ -80,7 +80,7 @@ export default class NormalOpeningHours extends Component {
               end: new Date(),
             },
           ],
-        },                                              
+        },
       ]
     }
     this.addHour = this.addHour.bind(this);
@@ -90,7 +90,7 @@ export default class NormalOpeningHours extends Component {
   addHour(key) {
     const prevState = Object.assign({}, this.state);
     const date = prevState.openHours.find((d) => d.startDate === key);
-    date.times.push({ start: new Date(), end: new Date() });
+    date.times.push({start: new Date(), end: new Date()});
     this.setState({
       openHours: prevState.openHours,
     });
@@ -108,69 +108,67 @@ export default class NormalOpeningHours extends Component {
   render() {
     const days = this.state.openHours.map((o, idx) => (
       <div className="row" key={`opening-hours-${idx}`}>
-        <div className="col-xs-4">
-          <div className="row">
-            <div className="col-xs-6">{o.startDate}</div>
-            <div className="col-xs-6">
-              <select name="" id="">
-                <option value="1">Open</option>
-                <option value="0">Close</option>
-              </select>
-            </div>
+        <div className="col-xs-4 no-padding day-name">
+          <div className="col-xs-6">{o.startDate}</div>
+          <div className="col-xs-6">
+            <select name="" id="">
+              <option value="1">Open</option>
+              <option value="0">Close</option>
+            </select>
           </div>
         </div>
-        <div className="col-xs-8">
-            {
-              o.times.map((time, i) => (
-                <div className="row">
-                  <div key={`normal-time-${i}`} className="col-xs-3">
-                    <TimePicker
-                      showSecond={false}
-                      defaultValue={moment(time.start)}
-                      format={format}
-                      use12Hours
-                    />
-                  </div>
-                  <div className="col-xs-1">-</div>
-                  <div className="col-xs-3">
-                    <TimePicker
-                      showSecond={false}
-                      defaultValue={moment(time.end)}
-                      format={format}
-                      use12Hours
-                    />
-                  </div>
-                  <div
-                    className="col-xs-1 removeHour"
-                    onClick={() => this.removeHour(o.startDate, i)}
-                  >
-                    X
-                  </div>
-                  {
-                    i === 0 && (
-                      <div className="col-xs-3 addHour"
-                        onClick={() => this.addHour(o.startDate)}
-                      >
-                        Add Hours
-                      </div>
-                    )
-                  }
+        <div className="col-xs-8 no-padding">
+          {
+            o.times.map((time, i) => (
+              <div className="flex-center time-items">
+                <div key={`normal-time-${i}`} className="col-xs-3 flex-center">
+                  <TimePicker
+                    showSecond={false}
+                    defaultValue={moment(time.start)}
+                    format={format}
+                    use12Hours
+                  />
                 </div>
-              ))
-            }
-            {
-                o.times.length === 0 && (
-                  <div className="col-xs-3 addHour"
-                    onClick={() => this.addHour(o.startDate)}
-                  >
-                    Add Hours
-                  </div>
-                )
-            }
+                <div className="col-xs-1 flex-center">-</div>
+                <div className="col-xs-3 flex-center">
+                  <TimePicker
+                    showSecond={false}
+                    defaultValue={moment(time.end)}
+                    format={format}
+                    use12Hours
+                  />
+                </div>
+                <div
+                  className="col-xs-1 removeHour flex-center"
+                  onClick={() => this.removeHour(o.startDate, i)}
+                >
+                  X
+                </div>
+                {
+                  i === 0 && (
+                    <div className="col-xs-3 addHour flex-center"
+                         onClick={() => this.addHour(o.startDate)}
+                    >
+                      Add Hours
+                    </div>
+                  )
+                }
+              </div>
+            ))
+          }
+          {
+            o.times.length === 0 && (
+              <div className="col-xs-3 addHour flex-center"
+                   onClick={() => this.addHour(o.startDate)}
+              >
+                Add Hours
+              </div>
+            )
+          }
         </div>
       </div>
     ))
-    return ( 
+    return (
       <div className="normal">
         { days }
       </div>

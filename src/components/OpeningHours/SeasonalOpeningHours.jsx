@@ -105,21 +105,19 @@ export default class SeasonalOpeningHours extends Component {
     const seasonalTimesSort = _.sortBy(this.state.seasonalTimes, 'date');
     const seasonalTimes = seasonalTimesSort.map((o, idx) => (
       <div className="row" key={`seasonal-date-${idx}`}>
-        <div className="col-xs-4">
-          <div className="row">
-            <div className="col-xs-6">{moment(o.date).format("DD/MM")}</div>
-            <div className="col-xs-6">
-              <select name="" id="">
-                <option value="1">Open</option>
-                <option value="0">Close</option>
-              </select>
-            </div>
+        <div className="col-xs-4 day-name">
+          <div className="col-xs-6">{moment(o.date).format("DD/MM")}</div>
+          <div className="col-xs-6">
+            <select name="" id="">
+              <option value="1">Open</option>
+              <option value="0">Close</option>
+            </select>
           </div>
         </div>
-        <div className="col-xs-8">
+        <div className="col-xs-8 no-padding">
           {
             o.times.map((time, i) => (
-              <div className="row"
+              <div className="flex-center time-items"
                    key={`seasonal-time-${i}`}
               >
                 <div key={`normal-time-${i}`} className="col-xs-3">
@@ -131,8 +129,8 @@ export default class SeasonalOpeningHours extends Component {
                   />
 
                 </div>
-                <div className="col-xs-1">-</div>
-                <div className="col-xs-3">
+                <div className="col-xs-1 flex-center">-</div>
+                <div className="col-xs-3 flex-center">
                   <TimePicker
                     showSecond={false}
                     defaultValue={moment(time.end)}
@@ -141,14 +139,14 @@ export default class SeasonalOpeningHours extends Component {
                   />
                 </div>
                 <div
-                  className="col-xs-1 removeHour"
+                  className="col-xs-1 removeHour flex-center"
                   onClick={() => this.removeHour(o.date, i)}
                 >
                   X
                 </div>
                 {
                   i === 0 && (
-                    <div className="col-xs-3 addHour"
+                    <div className="col-xs-3 addHour flex-center"
                          onClick={() => this.addHour(o.date)}
                     >
                       Add Hours
@@ -160,7 +158,7 @@ export default class SeasonalOpeningHours extends Component {
           }
           {
             o.times.length === 0 && (
-              <div className="col-xs-3 addHour"
+              <div className="col-xs-3 addHour flex-center"
                    onClick={() => this.addHour(o.date)}
               >
                 Add Hours
@@ -180,17 +178,17 @@ export default class SeasonalOpeningHours extends Component {
         <div className="seasonal-times">
           { seasonalTimes }
         </div>
-        <div className="row add-date-region">
-          <div className="col-xs-4">
+        <div className="row add-date-region flex-center">
+          <div className="col-xs-4 flex-center">
             <DatePicker
               dateFormat="DD/MM/YYYY"
               value={this.state.newDate.toISOString()}
               onChange={(val) => this.handleChangeDate(val)}
             />
           </div>
-          <div className="col-xs-8">
+          <div className="col-xs-8 flex-center">
             <div>
-              <div className="row">
+              <div className="flex-center">
                 <div className="col-xs-3">
                   <TimePicker
                     showSecond={false}
@@ -202,8 +200,8 @@ export default class SeasonalOpeningHours extends Component {
                     }}
                   />
                 </div>
-                <div className="col-xs-1">-</div>
-                <div className="col-xs-3">
+                <div className="col-xs-1 flex-center">-</div>
+                <div className="col-xs-3 flex-center">
                   <TimePicker
                     showSecond={false}
                     defaultValue={moment(this.state.newTime.end)}
@@ -214,7 +212,7 @@ export default class SeasonalOpeningHours extends Component {
                     }}
                   />
                 </div>
-                <div className="col-xs-4">
+                <div className="col-xs-4 flex-center">
                   <button className="btn btn-primary"
                           onClick={this.addDate}
                   >
