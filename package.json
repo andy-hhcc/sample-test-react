@@ -10,6 +10,7 @@
     "build": "webpack --config webpack/webpack.config.prod.js && npm run service-worker",
     "build:clean": "rimraf ./dist/",
     "start": "node server.js",
+    "prod": "node server.production.js",
     "service-worker": "sw-precache --config=sw-precache-config.js --verbose --sw-file=dist/sw.js",
     "lint": "eslint --fix --ext .js ./src"
   },
