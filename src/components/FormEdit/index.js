@@ -12,7 +12,7 @@ export default class FormEdit extends React.Component {
 
   render() {
     const EditBtn = (
-      <span
+      <span className="edit-btn"
         style={{ cursor: 'pointer' }}
         onClick={() => this.setState({isEditing: true,})}
       >
