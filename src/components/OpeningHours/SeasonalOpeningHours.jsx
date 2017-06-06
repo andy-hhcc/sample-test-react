@@ -32,6 +32,7 @@ export default class SeasonalOpeningHours extends Component {
     this.handleChangeDate = this.handleChangeDate.bind(this);
     this.addDate = this.addDate.bind(this);
   }
+
   addHour(key) {
     const prevState = Object.assign({}, this.state);
     const date = prevState.seasonalTimes.find((d) => d.startDate === key);
@@ -76,17 +77,18 @@ export default class SeasonalOpeningHours extends Component {
         });
     }
   }
-  
+
   addDate(value) {
-    console.log(this.state)
     const prevState = Object.assign({}, this.state);
     const newDate = {
       open: 1,
-      date: (new Date(value)),
-      times: [{ start: new Date(), end: new Date() }],
+      date: prevState.newDate,
+      times: [{start: new Date(), end: new Date()}],
     };
+    const newSeasonalTimes = prevState.seasonalTimes;
+    newSeasonalTimes.push(newDate);
     this.setState({
-      seasonalTimes: prevState.seasonalTimes.push(newDate),
+      seasonalTimes: newSeasonalTimes,
     });
   }
 
@@ -95,7 +97,7 @@ export default class SeasonalOpeningHours extends Component {
       <div className="row" key={`seasonal-date-${idx}`}>
         <div className="col-xs-4">
           <div className="row">
-            <div className="col-xs-6">{moment(o.date).format("MM/YY")}</div>
+            <div className="col-xs-6">{moment(o.date).format("MM/DD")}</div>
             <div className="col-xs-6">
               <select name="" id="">
                 <option value="1">Open</option>
