@@ -6,7 +6,7 @@ const ContactDetails = ({ details }) => {
   return (
     <FormEdit
       onSave={() => console.log('Save success')}
-    > 
+    >
       <Column>
         <ItemEdit
           title={'Store Name'}

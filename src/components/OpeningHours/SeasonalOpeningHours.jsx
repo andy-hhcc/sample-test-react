@@ -3,7 +3,8 @@ import TimePicker from 'rc-time-picker';
 import 'rc-time-picker/assets/index.css';
 import moment from 'moment';
 import DatePicker from 'react-bootstrap-date-picker';
-
+import { toastr } from 'react-redux-toastr';
+import _ from 'lodash';
 import './style.less';
 
 const format = 'h:mm a';
@@ -58,7 +59,6 @@ export default class SeasonalOpeningHours extends Component {
   }
 
   handleTimeChange(type, value) {
-    console.log(value)
     if (type === 'start') {
       this.setState({
         ...this.state,
@@ -84,13 +84,15 @@ export default class SeasonalOpeningHours extends Component {
       (d) => moment(d.date).format("MM/DD") === moment(prevState.newDate).format("MM/DD")
     );
 
-    if (typeof date != 'undefined')
+    if (typeof date != 'undefined') {
+      toastr.warning('Please choose another date');
       return;
+    }
 
     const newDate = {
       open: 1,
       date: prevState.newDate,
-      times: [{start: new Date(), end: new Date()}],
+      times: [prevState.newTime],
     };
 
     prevState.seasonalTimes.push(newDate);
@@ -100,11 +102,12 @@ export default class SeasonalOpeningHours extends Component {
   }
 
   render() {
-    const seasonalTimes = this.state.seasonalTimes.map((o, idx) => (
+    const seasonalTimesSort = _.sortBy(this.state.seasonalTimes, 'date');
+    const seasonalTimes = seasonalTimesSort.map((o, idx) => (
       <div className="row" key={`seasonal-date-${idx}`}>
         <div className="col-xs-4">
           <div className="row">
-            <div className="col-xs-6">{moment(o.date).format("MM/DD")}</div>
+            <div className="col-xs-6">{moment(o.date).format("DD/MM")}</div>
             <div className="col-xs-6">
               <select name="" id="">
                 <option value="1">Open</option>
@@ -177,6 +180,7 @@ export default class SeasonalOpeningHours extends Component {
           <div className="col-xs-3">
             <DatePicker
               dateFormat="DD/MM/YYYY"
+              value={this.state.newDate.toISOString()}
               onChange={(val) => this.handleChangeDate(val)}
             />
           </div>
@@ -184,7 +188,7 @@ export default class SeasonalOpeningHours extends Component {
             <div>
               <TimePicker
                 showSecond={false}
-                defaultValue={moment(new Date())}
+                defaultValue={moment(this.state.newTime.end)}
                 format={format}
                 use12Hours
                 onChange={(value) => {
@@ -193,7 +197,7 @@ export default class SeasonalOpeningHours extends Component {
               />
               <TimePicker
                 showSecond={false}
-                defaultValue={moment(new Date())}
+                defaultValue={moment(this.state.newTime.end)}
                 format={format}
                 use12Hours
                 onChange={(value) => {
