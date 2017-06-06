@@ -78,17 +78,24 @@ export default class SeasonalOpeningHours extends Component {
     }
   }
 
-  addDate(value) {
-    const prevState = Object.assign({}, this.state);
+  addDate() {
+    const prevState = {...this.state};
+    let date = prevState.seasonalTimes.find(
+      (d) => moment(d.date).format("MM/DD") === moment(prevState.newDate).format("MM/DD")
+    );
+
+    if (typeof date != 'undefined')
+      return;
+
     const newDate = {
       open: 1,
       date: prevState.newDate,
       times: [{start: new Date(), end: new Date()}],
     };
-    const newSeasonalTimes = prevState.seasonalTimes;
-    newSeasonalTimes.push(newDate);
+
+    prevState.seasonalTimes.push(newDate);
     this.setState({
-      seasonalTimes: newSeasonalTimes,
+      seasonalTimes: prevState.seasonalTimes,
     });
   }
 
