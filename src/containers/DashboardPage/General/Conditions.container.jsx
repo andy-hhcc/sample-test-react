@@ -43,7 +43,7 @@ const categoriesCol2 = [
 ]
 
 const stores = [
-  {value: 'All Store'},
+  {value: 'All Stores'},
   {value: 'Store 1'},
   {value: 'Store 2'},
   {value: 'Store 3'},

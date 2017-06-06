@@ -5,7 +5,7 @@ export default class Stores extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentValue: 'All Store',
+      currentValue: 'All Stores',
       containerClassName: 'main-area'
     }
   }
