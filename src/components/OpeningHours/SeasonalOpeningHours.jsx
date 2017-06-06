@@ -35,7 +35,7 @@ export default class SeasonalOpeningHours extends Component {
 
   addHour(key) {
     const prevState = Object.assign({}, this.state);
-    const date = prevState.seasonalTimes.find((d) => d.startDate === key);
+    const date = prevState.seasonalTimes.find((d) => d.date === key);
     date.times.push({ start: new Date(), end: new Date() });
     this.setState({
       seasonalTimes: prevState.seasonalTimes,
@@ -44,7 +44,7 @@ export default class SeasonalOpeningHours extends Component {
 
   removeHour(key, index) {
     const prevState = Object.assign({}, this.state);
-    const date = prevState.seasonalTimes.find((d) => d.startDate === key);
+    const date = prevState.seasonalTimes.find((d) => d.date === key);
     date.times.splice(index, 1);
     this.setState({
       seasonalTimes: prevState.seasonalTimes,
@@ -130,14 +130,14 @@ export default class SeasonalOpeningHours extends Component {
                   </div>
                   <div
                     className="col-xs-1 removeHour"
-                    onClick={() => this.removeHour(o.startDate, i)}
+                    onClick={() => this.removeHour(o.date, i)}
                   >
                     X
                   </div>
                   {
                     i === 0 && (
                       <div className="col-xs-3 addHour"
-                        onClick={() => this.addHour(o.startDate)}
+                        onClick={() => this.addHour(o.date)}
                       >
                         Add Hours
                       </div>
