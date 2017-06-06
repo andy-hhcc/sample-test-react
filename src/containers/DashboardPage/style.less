@@ -2,8 +2,56 @@
   padding: 15px;
 }
 
-.nav .active {
-  border-bottom: 5px solid orange;
+.navbar {
+  background-color: white !important;
+  .sidebar-toggle {
+    color: black !important;
+    &:hover {
+      background-color: unset !important;
+    }
+  }
+  .page-name {
+    color: darkgray;
+    font-weight: 600;
+  }
+  .user-block {
+    .username {
+      font-weight: 300;
+      font-size: 12px;
+      opacity: 0.8;
+
+      a {
+        color: black !important;
+      }
+    }
+    .description {
+      font-weight: 500;
+      font-size: 14px;
+      color: black !important;
+    }
+  }
+}
+
+.nav {
+  background-color: white;
+  .active {
+    border-bottom: 5px solid orange;
+  }
+  li {
+    a {
+      padding-top: 20px;
+      margin: 0;
+      &:hover {
+        background-color: unset;
+        border-bottom: unset;
+      }
+    }
+  }
+
+}
+
+.btn-box-tool {
+  display: none;
 }
 
 .dashboard-general {
@@ -15,7 +63,6 @@
           font-weight: 600;
           font-size: 16px;
           color: darkgray;
-          padding-top: 17px;
           padding-right: 100px;
         }
 
@@ -42,6 +89,8 @@
 
 .filter-conditions {
   display: flex;
+  border-bottom: solid 1px #ccc;
+  padding-bottom: 10px;
 
   label {
     display: none;
@@ -62,26 +111,34 @@
     }
   }
 
-  .date-range {
-    .from, .to {
-      margin-bottom: 10px;
-      position: relative;
-    }
-    .range-content {
-      display: flex;
-      input {
-        width: unset;
-        margin: 0;
-        display: inline-block;
+  .date-range-block {
+    width: 20%;
+    .date-range {
+      .from, .to {
+        margin-bottom: 10px;
+        position: relative;
       }
-      .square-grey {
-        width: 34px;
-        height: 34px;
-        background-color: lightgrey;
-        cursor: pointer;
+      .range-content {
+        display: flex;
+        input {
+          width: 130px;
+          margin: 0;
+          display: inline-block;
+        }
+        .square-grey {
+          width: 34px;
+          height: 34px;
+          background-color: lightgrey;
+          cursor: pointer;
+        }
       }
     }
   }
+
+  .categories-block {
+    width: 30%;
+  }
+
   .stores {
     width: 100%;
     position: relative;

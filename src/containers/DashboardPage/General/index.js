@@ -1,6 +1,7 @@
 import React from 'react';
 import Conditions from './Conditions.container';
 import Chart from '../../../components/Dashboard/Chart';
+import Box from 'components/Box';
 
 const data = [
   {name: '27/02', uv: 100, pv: 240},
@@ -27,8 +28,12 @@ export default class General extends React.Component {
     return (
 
       <div>
-        <Conditions/>
-        <Chart chartData={data}/>
+        <Box
+          title=""
+        >
+          <Conditions/>
+          <Chart chartData={data}/>
+        </Box>
       </div>
     )
   }

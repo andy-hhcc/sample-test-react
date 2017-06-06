@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Box from 'components/Box';
 import ChartType from '../../../components/Dashboard/ChartType';
 import Frequency from '../../../components/Dashboard/Frequency';
 import DateRange from '../../../components/Dashboard/DateRange';
@@ -58,9 +57,7 @@ export default class Conditions extends Component {
   }
 
   render() {
-    return (<Box
-      title=""
-    >
+    return (
       <div className="filter-conditions">
         <div className="col-md-2 filter-item">
           <ChartType typeConditions={type}/>
@@ -68,18 +65,17 @@ export default class Conditions extends Component {
         <div className="col-md-2 filter-item">
           <Frequency frequencyData={frequency}/>
         </div>
-        <div className="col-md-3 filter-item">
+        <div className="col-md-3 date-range-block filter-item">
           <DateRange dateRangeData={dateRange}/>
         </div>
-        <div className="col-md-3 filter-item">
+        <div className="col-md-3 categories-block filter-item">
           <Category categoriesCol1={categoriesCol1} categoriesCol2={categoriesCol2}/>
         </div>
         <div className="col-md-2 filter-item">
           <Stores stores={stores}/>
         </div>
       </div>
-
-    </Box>);
+    );
   }
 }
 

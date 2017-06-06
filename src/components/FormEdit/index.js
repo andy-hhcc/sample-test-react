@@ -17,6 +17,7 @@ export default class FormEdit extends React.Component {
         onClick={() => this.setState({isEditing: true,})}
       >
         Edit
+        <div className="square"></div>
       </span>
     );
     const childrenWithProps = React.Children.map(this.props.children,
