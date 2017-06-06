@@ -3,7 +3,7 @@ import TimePicker from 'rc-time-picker';
 import 'rc-time-picker/assets/index.css';
 import moment from 'moment';
 import DatePicker from 'react-bootstrap-date-picker';
-import { toastr } from 'react-redux-toastr';
+import {toastr} from 'react-redux-toastr';
 import _ from 'lodash';
 import './style.less';
 
@@ -17,7 +17,7 @@ export default class SeasonalOpeningHours extends Component {
           date: new Date(),
           open: 1,
           times: [
-            { start: new Date(), end: new Date(), },
+            {start: new Date(), end: new Date(),},
           ],
         }
       ],
@@ -37,7 +37,7 @@ export default class SeasonalOpeningHours extends Component {
   addHour(key) {
     const prevState = Object.assign({}, this.state);
     const date = prevState.seasonalTimes.find((d) => d.date === key);
-    date.times.push({ start: new Date(), end: new Date() });
+    date.times.push({start: new Date(), end: new Date()});
     this.setState({
       seasonalTimes: prevState.seasonalTimes,
     });
@@ -68,13 +68,13 @@ export default class SeasonalOpeningHours extends Component {
         }
       });
     } else {
-        this.setState({
-          ...this.state,
-          newTime: {
-            ...this.state.newTime,
-            end: value,
-          }
-        });
+      this.setState({
+        ...this.state,
+        newTime: {
+          ...this.state.newTime,
+          end: value,
+        }
+      });
     }
   }
 
@@ -176,39 +176,48 @@ export default class SeasonalOpeningHours extends Component {
           Seasonal Opening Hours
         </div>
         { seasonalTimes }
-        <div className="footer">
-          <div className="col-xs-3">
+        <div className="row add-date-region">
+          <div className="col-xs-4">
             <DatePicker
               dateFormat="DD/MM/YYYY"
               value={this.state.newDate.toISOString()}
               onChange={(val) => this.handleChangeDate(val)}
             />
           </div>
-          <div className="col-xs-9">
+          <div className="col-xs-8">
             <div>
-              <TimePicker
-                showSecond={false}
-                defaultValue={moment(this.state.newTime.end)}
-                format={format}
-                use12Hours
-                onChange={(value) => {
-                  this.handleTimeChange('start', value);
-                }}
-              />
-              <TimePicker
-                showSecond={false}
-                defaultValue={moment(this.state.newTime.end)}
-                format={format}
-                use12Hours
-                onChange={(value) => {
-                  this.handleTimeChange('end', value);
-                }}
-              />
-              <button className="btn btn-primary"
-                onClick={this.addDate}
-              >
-                Add Hours
-              </button>
+              <div className="row">
+                <div className="col-xs-4">
+                  <TimePicker
+                    showSecond={false}
+                    defaultValue={moment(this.state.newTime.end)}
+                    format={format}
+                    use12Hours
+                    onChange={(value) => {
+                      this.handleTimeChange('start', value);
+                    }}
+                  />
+                </div>
+                <div className="col-xs-4">
+                  <TimePicker
+                    showSecond={false}
+                    defaultValue={moment(this.state.newTime.end)}
+                    format={format}
+                    use12Hours
+                    onChange={(value) => {
+                      this.handleTimeChange('end', value);
+                    }}
+                  />
+                </div>
+                <div className="col-xs-4">
+                  <button className="btn btn-primary"
+                          onClick={this.addDate}
+                  >
+                    Add Hours
+                  </button>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>

@@ -80,7 +80,8 @@ export const ItemEdit = ({ editing, title, value }) =>
     <div className="col-md-12">
       <FormGroup title={title}>
         {
-          editing ? <input type="text" className="form-control" value={value}/> : <span>{value}</span>
+          editing ? <input type="text" className="form-control" value={value}/> :
+            <span className={`${title == 'SID' ? 'bold' : ''}`}>{value}</span>
         }
       </FormGroup>
     </div>

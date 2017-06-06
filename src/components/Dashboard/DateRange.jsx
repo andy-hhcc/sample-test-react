@@ -67,14 +67,9 @@ export default class DateRange extends Component {
       Calendar: {
         width: "300px",
         position: "absolute",
-        top: "55px",
-        left: "0",
         zIndex: "9999",
-        border: "1px solid #ccc"
       },
       Day: {fontSize: "15px", fontWeight: "300"},
-      DaySelected: {background: "#00a4ff", color: "#fff"},
-      DayInRange: {background: "#f6f6f6", color: "#000"},
       DayHover: {
         background: "#ffffff",
         color: "#7f8c8d",
