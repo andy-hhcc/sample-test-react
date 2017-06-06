@@ -104,7 +104,7 @@ export default class SeasonalOpeningHours extends Component {
   render() {
     const seasonalTimesSort = _.sortBy(this.state.seasonalTimes, 'date');
     const seasonalTimes = seasonalTimesSort.map((o, idx) => (
-      <div className="row" key={`seasonal-date-${idx}`}>
+      <div className="row seasonal-times" key={`seasonal-date-${idx}`}>
         <div className="col-xs-4">
           <div className="row">
             <div className="col-xs-6">{moment(o.date).format("DD/MM")}</div>
@@ -117,54 +117,56 @@ export default class SeasonalOpeningHours extends Component {
           </div>
         </div>
         <div className="col-xs-8">
-            {
-              o.times.map((time, i) => (
-                <div className="row"
-                  key={`seasonal-time-${i}`}
-                >
-                  <div key={`normal-time-${i}`} className="col-xs-4">
-                    <TimePicker
-                      showSecond={false}
-                      defaultValue={moment(time.start)}
-                      format={format}
-                      use12Hours
-                    />
-                  </div>
-                  <div className="col-xs-4">
-                    <TimePicker
-                      showSecond={false}
-                      defaultValue={moment(time.end)}
-                      format={format}
-                      use12Hours
-                    />
-                  </div>
-                  <div
-                    className="col-xs-1 removeHour"
-                    onClick={() => this.removeHour(o.date, i)}
-                  >
-                    X
-                  </div>
-                  {
-                    i === 0 && (
-                      <div className="col-xs-3 addHour"
-                        onClick={() => this.addHour(o.date)}
-                      >
-                        Add Hours
-                      </div>
-                    )
-                  }
+          {
+            o.times.map((time, i) => (
+              <div className="row"
+                   key={`seasonal-time-${i}`}
+              >
+                <div key={`normal-time-${i}`} className="col-xs-3">
+                  <TimePicker
+                    showSecond={false}
+                    defaultValue={moment(time.start)}
+                    format={format}
+                    use12Hours
+                  />
+
                 </div>
-              ))
-            }
-            {
-                o.times.length === 0 && (
-                  <div className="col-xs-3 addHour"
-                    onClick={() => this.addHour(o.date)}
-                  >
-                    Add Hours
-                  </div>
-                )
-            }
+                <div className="col-xs-1">-</div>
+                <div className="col-xs-3">
+                  <TimePicker
+                    showSecond={false}
+                    defaultValue={moment(time.end)}
+                    format={format}
+                    use12Hours
+                  />
+                </div>
+                <div
+                  className="col-xs-1 removeHour"
+                  onClick={() => this.removeHour(o.date, i)}
+                >
+                  X
+                </div>
+                {
+                  i === 0 && (
+                    <div className="col-xs-3 addHour"
+                         onClick={() => this.addHour(o.date)}
+                    >
+                      Add Hours
+                    </div>
+                  )
+                }
+              </div>
+            ))
+          }
+          {
+            o.times.length === 0 && (
+              <div className="col-xs-3 addHour"
+                   onClick={() => this.addHour(o.date)}
+              >
+                Add Hours
+              </div>
+            )
+          }
         </div>
       </div>
     ));
@@ -187,7 +189,7 @@ export default class SeasonalOpeningHours extends Component {
           <div className="col-xs-8">
             <div>
               <div className="row">
-                <div className="col-xs-4">
+                <div className="col-xs-3">
                   <TimePicker
                     showSecond={false}
                     defaultValue={moment(this.state.newTime.end)}
@@ -198,7 +200,8 @@ export default class SeasonalOpeningHours extends Component {
                     }}
                   />
                 </div>
-                <div className="col-xs-4">
+                <div className="col-xs-1">-</div>
+                <div className="col-xs-3">
                   <TimePicker
                     showSecond={false}
                     defaultValue={moment(this.state.newTime.end)}
@@ -213,7 +216,7 @@ export default class SeasonalOpeningHours extends Component {
                   <button className="btn btn-primary"
                           onClick={this.addDate}
                   >
-                    Add Hours
+                    Add
                   </button>
                 </div>
 

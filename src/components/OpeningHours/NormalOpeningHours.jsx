@@ -123,7 +123,7 @@ export default class NormalOpeningHours extends Component {
             {
               o.times.map((time, i) => (
                 <div className="row">
-                  <div key={`normal-time-${i}`} className="col-xs-4">
+                  <div key={`normal-time-${i}`} className="col-xs-3">
                     <TimePicker
                       showSecond={false}
                       defaultValue={moment(time.start)}
@@ -131,7 +131,8 @@ export default class NormalOpeningHours extends Component {
                       use12Hours
                     />
                   </div>
-                  <div className="col-xs-4">
+                  <div className="col-xs-1">-</div>
+                  <div className="col-xs-3">
                     <TimePicker
                       showSecond={false}
                       defaultValue={moment(time.end)}
