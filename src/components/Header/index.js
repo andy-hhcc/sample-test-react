@@ -1,21 +1,21 @@
 import React from 'react';
 import ProfileCard from './ProfileCard';
 import './style.less';
-const Header = ({ user }) => (
+const Header = ({user, headerTitle}) => (
   <header className="main-header">
-    <nav className="navbar navbar-static-top" role="navigation" style={{ marginLeft: 0 }}>
+    <nav className="navbar navbar-static-top" role="navigation" style={{marginLeft: 0}}>
       <a href="/#" className="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span className="sr-only">Toggle navigation</span>
       </a>
       <div
         className="page-name"
       >
-        STORE NAME: Milton Keynes (SID: GB01101001)
+        {headerTitle}
       </div>
       <div className="navbar-custom-menu">
-        <ProfileCard 
+        <ProfileCard
           name='Laura McGuiness'
-          description= 'The Ice Cream Ltd'
+          description='The Ice Cream Ltd'
         />
       </div>
     </nav>
@@ -23,7 +23,7 @@ const Header = ({ user }) => (
 );
 
 Header.defaultProps = {
-  user: { name: '', permissions: [] },
+  user: {name: '', permissions: []},
 };
 
 Header.propTypes = {

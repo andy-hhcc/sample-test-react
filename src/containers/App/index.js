@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import Header from 'components/Header';
 import SideBar from 'components/SideBar';
@@ -10,15 +8,20 @@ import ReduxToastr from 'react-redux-toastr';
 // } from 'auth/actions';
 import 'react-redux-toastr/src/less/index.less';
 
+const headerText = {
+  dashboardPage: 'INSIGHT',
+  storePage: 'STORE NAME: Milton Keynes (SID: GB01101001)'
+}
 class App extends React.Component {
 
   componentDidMount() {
   }
 
   render() {
+    const {name}=this.props.children.props.route;
     return (
       <div className="wrapper">
-        <Header />
+        <Header headerTitle={name == 'dashboard' ? headerText.dashboardPage : headerText.storePage}/>
         <SideBar />
         { React.Children.toArray(this.props.children) }
         <ReduxToastr
@@ -28,13 +31,13 @@ class App extends React.Component {
           position="top-right"
           transitionIn="fadeIn"
           transitionOut="fadeOut"
-        /> </div>
+        /></div>
     );
   }
 }
 
 App.defaultProps = {
-  user: { name: '', permissions: [] },
+  user: {name: '', permissions: []},
   // loadCurrentUserInfo: () => {},
 };
 
