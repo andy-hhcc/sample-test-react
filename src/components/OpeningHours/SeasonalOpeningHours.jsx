@@ -149,7 +149,7 @@ export default class SeasonalOpeningHours extends Component {
             {
                 o.times.length === 0 && (
                   <div className="col-xs-3 addHour"
-                    onClick={() => this.addHour(o.startDate)}
+                    onClick={() => this.addHour(o.date)}
                   >
                     Add Hours
                   </div>
