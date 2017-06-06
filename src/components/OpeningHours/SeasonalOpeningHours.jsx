@@ -104,7 +104,7 @@ export default class SeasonalOpeningHours extends Component {
   render() {
     const seasonalTimesSort = _.sortBy(this.state.seasonalTimes, 'date');
     const seasonalTimes = seasonalTimesSort.map((o, idx) => (
-      <div className="row seasonal-times" key={`seasonal-date-${idx}`}>
+      <div className="row" key={`seasonal-date-${idx}`}>
         <div className="col-xs-4">
           <div className="row">
             <div className="col-xs-6">{moment(o.date).format("DD/MM")}</div>
@@ -177,7 +177,9 @@ export default class SeasonalOpeningHours extends Component {
         <div className="head-title">
           Seasonal Opening Hours
         </div>
-        { seasonalTimes }
+        <div className="seasonal-times">
+          { seasonalTimes }
+        </div>
         <div className="row add-date-region">
           <div className="col-xs-4">
             <DatePicker
