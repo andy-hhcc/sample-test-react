@@ -30,7 +30,7 @@ export default class ImageStore extends React.Component {
 		}));
 		return (
 			<Box
-				title="Image Store" 
+				title="Store Images"
 			>
 				<div className="col-sm-12">
 					<Gallery
