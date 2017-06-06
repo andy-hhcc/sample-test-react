@@ -2,7 +2,7 @@ import React from 'react';
 import ContentWrapper from 'components/ContentWrapper';
 import General from './General/index';
 import {Tabs, Tab} from 'react-bootstrap';
-
+import $ from 'jquery';
 import './style.less'
 
 class DashboardPage extends React.Component {
@@ -11,6 +11,10 @@ class DashboardPage extends React.Component {
     {
 
     }
+  }
+
+  componentWillMount() {
+    !$('body.skin-blue').hasClass('sidebar-collapse') && $('body.skin-blue').addClass('sidebar-collapse');
   }
 
   render() {
