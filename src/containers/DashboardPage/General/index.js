@@ -27,7 +27,7 @@ export default class General extends React.Component {
   render() {
     return (
 
-      <div>
+      <div className="general-block">
         <Box
           title=""
         >
