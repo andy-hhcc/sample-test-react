@@ -34,16 +34,28 @@
 
 .nav {
   background-color: white;
+
   .active {
     border-bottom: 5px solid orange;
+    a {
+      border: none !important;
+      &:hover {
+        background-color: unset;
+        border-bottom: unset;
+        border: none !important;
+      }
+    }
   }
+
   li {
     a {
       padding-top: 20px;
       margin: 0;
+      border-right: none !important;
       &:hover {
         background-color: unset;
         border-bottom: unset;
+        border: none !important;
       }
     }
   }
