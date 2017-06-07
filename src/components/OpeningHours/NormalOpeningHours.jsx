@@ -4,7 +4,7 @@ import 'rc-time-picker/assets/index.css';
 import moment from 'moment';
 import './style.less';
 
-const format = 'h:mm a';
+const format = 'HH:mm';
 
 export default class NormalOpeningHours extends Component {
   constructor(props) {
@@ -126,7 +126,6 @@ export default class NormalOpeningHours extends Component {
                     showSecond={false}
                     defaultValue={moment(time.start)}
                     format={format}
-                    use12Hours
                   />
                 </div>
                 <div className="col-xs-1 flex-center">-</div>
@@ -135,7 +134,6 @@ export default class NormalOpeningHours extends Component {
                     showSecond={false}
                     defaultValue={moment(time.end)}
                     format={format}
-                    use12Hours
                   />
                 </div>
                 <div

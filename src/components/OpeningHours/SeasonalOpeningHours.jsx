@@ -7,7 +7,7 @@ import {toastr} from 'react-redux-toastr';
 import _ from 'lodash';
 import './style.less';
 
-const format = 'h:mm a';
+const format = 'HH:mm';
 export default class SeasonalOpeningHours extends Component {
   constructor(props) {
     super(props);
@@ -125,7 +125,6 @@ export default class SeasonalOpeningHours extends Component {
                     showSecond={false}
                     defaultValue={moment(time.start)}
                     format={format}
-                    use12Hours
                   />
 
                 </div>
@@ -135,7 +134,6 @@ export default class SeasonalOpeningHours extends Component {
                     showSecond={false}
                     defaultValue={moment(time.end)}
                     format={format}
-                    use12Hours
                   />
                 </div>
                 <div
@@ -194,7 +192,6 @@ export default class SeasonalOpeningHours extends Component {
                     showSecond={false}
                     defaultValue={moment(this.state.newTime.end)}
                     format={format}
-                    use12Hours
                     onChange={(value) => {
                       this.handleTimeChange('start', value);
                     }}
@@ -206,7 +203,6 @@ export default class SeasonalOpeningHours extends Component {
                     showSecond={false}
                     defaultValue={moment(this.state.newTime.end)}
                     format={format}
-                    use12Hours
                     onChange={(value) => {
                       this.handleTimeChange('end', value);
                     }}
